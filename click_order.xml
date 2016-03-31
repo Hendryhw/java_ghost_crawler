@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+	<!--
+	Description : Ruten crawler input xml file, and this crawler only support
+				third layer format
+	Date : 01/08/2016
+	Input Format :
+	<category text="main_category_in_ruten_homepage">
+		<category text="category_under_main_category">
+			<category>
+				<title>third_cateory_under_category</title>
+				<amount>amount_of_product_under_each_category</amount>
+			</category>
+		</category>
+	</category>
+
+	Below is the example
+	-->
+	<category text="交通工具">
+		<category text="自行車">
+			<category text="折疊式">
+			</category>
+			<category text="公路車">
+			</category>
+			<category text="淑女車">
+			</category>
+			<category text="越野車">
+			</category>
+		</category>
+	</category>
+
+	<category text="電腦、電子">
+		<category text="筆記型電腦">
+			<category text="Acer">
+			</category>
+			<category text="ASUS">
+			</category>
+			<category text="HP">
+			</category>
+			<category text="DELL">
+			</category>
+			<category text="Lenovo">
+			</category>
+		</category>
+		<category text="桌上型電腦">
+			<category text="Acer">
+			</category>
+			<category text="ASUS">
+			</category>
+			<category text="HP">
+			</category>
+			<category text="DELL">
+			</category>
+			<category text="Lenovo">
+			</category>
+		</category>
+	</category>
+
+	<category text="相機、攝影機">
+		<category text="DC數位相機">
+			<category text="Canon">
+			</category>
+			<category text="SONY">
+			</category>
+			<category text="Nikon">
+			</category>
+			<category text="CASIO">
+			</category>
+		</category>
+		<category text="類單眼數位相機">
+			<category text="Canon">
+			</category>
+			<category text="SONY">
+			</category>
+			<category text="Nikon">
+			</category>
+			<category text="CASIO">
+			</category>
+		</category>
+		<category text="DSLR數位單眼相機">
+			<category text="Canon">
+			</category>
+			<category text="SONY">
+			</category>
+			<category text="Nikon">
+			</category>
+			<category text="CASIO">
+			</category>
+		</category>
+	</category>
+
+</product>
