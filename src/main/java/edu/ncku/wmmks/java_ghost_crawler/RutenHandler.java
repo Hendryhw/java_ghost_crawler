@@ -23,12 +23,21 @@ public class RutenHandler {
 		driver.get(RutenHandler.RUTEN_URL);
 	}
 	
-	public void crawl_iterator(click_unit head, WebDriver driver){
-		System.out.println(head.getTitle() + " : " + driver.getCurrentUrl());
+	/**
+	 * 
+	 * @param head
+	 * @param driver
+	 * @param parents_store
+	 */
+	public void crawl_iterator(click_unit head, WebDriver driver, String parents_store){
+//		System.out.println(head.getTitle() + " : " + driver.getCurrentUrl());
 		head.setUrl(driver.getCurrentUrl());
+		head.setStore(parents_store + head.getTitle() + "/");
+//		System.out.println(head.getStore());
+		
 		if(head.getSubSize() == 0){
-			// crawl product here , multi-thread here
-			
+			// crawl product here , multi-thread here, call CrawlProduct.java thread here
+			CrawlProduct leaf_category = new CrawlProduct(head.getUrl(), head.getStore());
 		} else {
 			for(int i = 0; i < head.getSubSize(); i++){
 				try{
@@ -36,11 +45,11 @@ public class RutenHandler {
 				}catch(Exception e){
 					System.out.println(head.getNextClick(i).getTitle() + " - Click Failed");
 				}
-				crawl_iterator(head.getNextClick(i), driver);
+				crawl_iterator(head.getNextClick(i), driver, head.getStore());
 				driver.navigate().to(head.getUrl());
 			}		
 		}// else
-	}
+	}// end method crawl_iterator
 	
 	public void analyzeClickOrder(String crawl_src){
 		File ipu_xml = new File(crawl_src);
@@ -78,4 +87,6 @@ public class RutenHandler {
 		return head;
 		
 	}
+	
+	
 }

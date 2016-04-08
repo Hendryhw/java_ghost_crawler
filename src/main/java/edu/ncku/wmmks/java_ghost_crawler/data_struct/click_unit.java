@@ -5,11 +5,16 @@ import java.util.LinkedList;
 public class click_unit {
 	private LinkedList<click_unit> sub = null;
 	private String click_title;
+	private String store_directory;
 	private String url;
 	
 	public click_unit() {
 		this.sub = new LinkedList<click_unit>();
 	}
+	
+	public String getStore(){ return this.store_directory; }
+	
+	public void setStore(String path){ this.store_directory = path; }
 	
 	public void setTitle(String title) { this.click_title = title; }
 	

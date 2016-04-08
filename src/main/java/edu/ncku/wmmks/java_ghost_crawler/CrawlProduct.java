@@ -7,6 +7,14 @@ import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class CrawlProduct extends Thread{
+	// final variable for storing files' name
+	private static final String BASIC_FILE = "basic.txt";
+	private static final String DESCRIPTION_FILE = "description.txt";
+	private static final String RECORDS_FILE = "qa.txt";
+	private static final String QA_FILE = "records.txt";
+	private static final String PAY_FILE = "pay.txt";
+	private static final String DELIVERY_FILE = "delivery.txt";
+	
 	private WebDriver driver;
 	private String start_url;
 	private String store_path;

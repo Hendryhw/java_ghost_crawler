@@ -32,7 +32,7 @@ public class App {
 	private static void ruten_action(WebDriver driver) {
 		RutenHandler ruten_handler = new RutenHandler(driver);
 		ruten_handler.analyzeClickOrder("click_order.xml");
-		ruten_handler.crawl_iterator(ruten_handler.click_head, driver);
+		ruten_handler.crawl_iterator(ruten_handler.click_head, driver, "./");
 	}
 
 	private static void example_action(WebDriver driver) {
