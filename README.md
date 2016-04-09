@@ -1,9 +1,12 @@
+## Check the input example in :
+click_order.xml
+
 ## PhantomJS Driver Download here
 http://phantomjs.org/download.html
 
-Put PhantomJS to
-java_ghost_crawler/path/for/phantomjs/bin/phantomjs.exe
-in the project directory
+Put PhantomJS to :<br />
+java_ghost_crawler/path/for/phantomjs/bin/phantomjs.exe <br />
+in the project directory <br />
 
 ## Reference :
 1. PhantomJS : 

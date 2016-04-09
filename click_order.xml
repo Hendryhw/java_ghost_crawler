@@ -27,44 +27,4 @@
 		</category>
 	</category>
 
-	<category text="運動、健身">
-		<category text="筆記型電腦">
-			<category text="Acer">
-			</category>
-			<category text="ASUS">
-			</category>
-			<category text="HP">
-			</category>
-			<category text="DELL">
-			</category>
-			<category text="Lenovo">
-			</category>
-		</category>
-		<category text="桌上型電腦">
-			<category text="Acer">
-			</category>
-			<category text="ASUS">
-			</category>
-			<category text="HP">
-			</category>
-			<category text="DELL">
-			</category>
-			<category text="Lenovo">
-			</category>
-		</category>
-	</category>
-
-	<category text="相機、攝影機">
-		<category text="DC數位相機">
-			<category text="Canon">
-			</category>
-			<category text="SONY">
-			</category>
-			<category text="Nikon">
-			</category>
-			<category text="CASIO">
-			</category>
-		</category>
-	</category>
-
 </product>
