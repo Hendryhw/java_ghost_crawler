@@ -29,13 +29,25 @@ public class CrawlProduct extends Thread{
         ((DesiredCapabilities) caps).setCapability("takesScreenshot", true);    //< yeah, GhostDriver haz screenshotz!
         ((DesiredCapabilities) caps).setCapability(
             PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-            "C:/Users/HenryJhou/java_Workspace/java_ghost_crawler/phantomjs-2.1.1/bin/phantomjs.exe"
+            "./phantomjs/bin/phantomjs.exe"
         );
         this.driver = new PhantomJSDriver(caps);
 	}
 	
 	public void run() {
-		
+		System.out.println(Thread.currentThread().getName()+" Start.");
+        processCommand();
+        System.out.println(Thread.currentThread().getName()+" End.");
+	}
+
+	private void processCommand() {
+		try {
+			System.out.println("Store directory : " + this.store_path);
+			System.out.println("Start url       : " + this.start_url);
+            Thread.sleep(50000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 	}
 
 }

@@ -3,13 +3,11 @@
 	<!--
 	Description : Ruten crawler input xml file, and this crawler only support
 				third layer format
-	Date : 01/08/2016
+	Date : 04/09/2016
 	Input Format :
 	<category text="main_category_in_ruten_homepage">
 		<category text="category_under_main_category">
-			<category>
-				<title>third_cateory_under_category</title>
-				<amount>amount_of_product_under_each_category</amount>
+			<category text="third_cateory_under_category">
 			</category>
 		</category>
 	</category>
@@ -29,7 +27,7 @@
 		</category>
 	</category>
 
-	<category text="電腦、電子">
+	<category text="運動、健身">
 		<category text="筆記型電腦">
 			<category text="Acer">
 			</category>
@@ -58,26 +56,6 @@
 
 	<category text="相機、攝影機">
 		<category text="DC數位相機">
-			<category text="Canon">
-			</category>
-			<category text="SONY">
-			</category>
-			<category text="Nikon">
-			</category>
-			<category text="CASIO">
-			</category>
-		</category>
-		<category text="類單眼數位相機">
-			<category text="Canon">
-			</category>
-			<category text="SONY">
-			</category>
-			<category text="Nikon">
-			</category>
-			<category text="CASIO">
-			</category>
-		</category>
-		<category text="DSLR數位單眼相機">
 			<category text="Canon">
 			</category>
 			<category text="SONY">

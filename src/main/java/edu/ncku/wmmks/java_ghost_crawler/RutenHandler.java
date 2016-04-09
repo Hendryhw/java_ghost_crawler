@@ -9,6 +9,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.w3c.dom.*;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import edu.ncku.wmmks.java_ghost_crawler.data_struct.click_unit;
 
 public class RutenHandler {
@@ -18,8 +21,15 @@ public class RutenHandler {
 	
 	public click_unit click_head;
 	
+	private int computer_core_amount;
+	
+	private volatile ExecutorService executor;
+	
 	public RutenHandler(WebDriver driver) {
 		this.main_driver = driver;
+		this.computer_core_amount = Runtime.getRuntime().availableProcessors();
+		System.out.println("CPU thread number : " + this.computer_core_amount);
+		this.executor = Executors.newFixedThreadPool(this.computer_core_amount);
 		driver.get(RutenHandler.RUTEN_URL);
 	}
 	
@@ -38,6 +48,8 @@ public class RutenHandler {
 		if(head.getSubSize() == 0){
 			// crawl product here , multi-thread here, call CrawlProduct.java thread here
 			CrawlProduct leaf_category = new CrawlProduct(head.getUrl(), head.getStore());
+			//leaf_category.start();
+			executor.execute(leaf_category);
 		} else {
 			for(int i = 0; i < head.getSubSize(); i++){
 				try{

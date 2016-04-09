@@ -16,7 +16,7 @@ public class App {
         ((DesiredCapabilities) caps).setCapability("takesScreenshot", true);    //< yeah, GhostDriver haz screenshotz!
         ((DesiredCapabilities) caps).setCapability(
             PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-            "C:/Users/HenryJhou/java_Workspace/java_ghost_crawler/phantomjs-2.1.1/bin/phantomjs.exe"
+            "./phantomjs/bin/phantomjs.exe"
         );
 
         // Launch driver (will take care and ownership of the phantomjs process)
