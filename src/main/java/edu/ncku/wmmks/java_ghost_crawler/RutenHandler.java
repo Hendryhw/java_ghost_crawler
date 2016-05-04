@@ -14,7 +14,7 @@ import java.util.concurrent.Executors;
 
 import edu.ncku.wmmks.java_ghost_crawler.data_struct.click_unit;
 
-public class RutenHandler {
+public class RutenHandler extends BasicHandler{
 	final static public String RUTEN_URL = "http://www.ruten.com.tw/";
 	
 	private WebDriver main_driver;
@@ -22,11 +22,14 @@ public class RutenHandler {
 	public click_unit click_head;
 	
 	private int computer_core_amount;
+	private String phantomjs_path;
 	
+	// executor to control thread amount
 	private volatile ExecutorService executor;
 	
-	public RutenHandler(WebDriver driver) {
+	public RutenHandler(WebDriver driver, String phantomjs_path) {
 		this.main_driver = driver;
+		this.phantomjs_path = phantomjs_path;
 		this.computer_core_amount = Runtime.getRuntime().availableProcessors();
 		System.out.println("CPU thread number : " + this.computer_core_amount);
 		this.executor = Executors.newFixedThreadPool(this.computer_core_amount);
@@ -43,11 +46,14 @@ public class RutenHandler {
 //		System.out.println(head.getTitle() + " : " + driver.getCurrentUrl());
 		head.setUrl(driver.getCurrentUrl());
 		head.setStore(parents_store + head.getTitle() + "/");
-//		System.out.println(head.getStore());
+		if(BasicHandler.create_directory(head.getStore())){
+			System.out.println(head.getStore() + " be created.");
+		}
+		
 		
 		if(head.getSubSize() == 0){
 			// crawl product here , multi-thread here, call CrawlProduct.java thread here
-			CrawlProduct leaf_category = new CrawlProduct(head.getUrl(), head.getStore());
+			CrawlProduct leaf_category = new CrawlProduct(head.getUrl(), head.getStore(), this.phantomjs_path);
 			//leaf_category.start();
 			executor.execute(leaf_category);
 		} else {

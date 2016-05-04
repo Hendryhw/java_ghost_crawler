@@ -9,14 +9,43 @@ import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class App {
+	private static String OS = System.getProperty("os.name").toLowerCase();
+	private static String phantomjs_path;
+	static String crawl_file;
+	
     public static void main( String[] args ) {
+    	
+    	if (isWindows()) {
+    		System.out.println("Found Operating System : Windows");
+    		phantomjs_path = "phantomjs/bin/phantomjs.exe";
+		} else if (isMac()) {
+			System.out.println("Found Operating System : Mac");
+		} else if (isUnix()) {
+			System.out.println("Found Operating System : Unix Base");
+			phantomjs_path = "phantomjs/bin/phantomjs";
+		} else if (isSolaris()) {
+			System.out.println("Found Operating System : Solaris");
+			System.out.println("This is Solaris");
+		} else {
+			System.out.println("Not support this Operating System, Crawler Stop !");
+			System.exit(0);
+		}
+    	
+    	if(args.length != 1){
+			System.out.println("usage: java -jar ghost_crawler.jar <crawl_input_file.xml>");
+			crawl_file = "click_order.xml";
+		}else{
+			crawl_file = args[0];
+		}
+    	
+    	
     	// prepare capabilities
         Capabilities caps = new DesiredCapabilities();
         ((DesiredCapabilities) caps).setJavascriptEnabled(true);                //< not really needed: JS enabled by default
-        ((DesiredCapabilities) caps).setCapability("takesScreenshot", true);    //< yeah, GhostDriver haz screenshotz!
+        ((DesiredCapabilities) caps).setCapability("takesScreenshot", false);    //< yeah, GhostDriver haz screenshotz!
         ((DesiredCapabilities) caps).setCapability(
             PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
-            "./phantomjs/bin/phantomjs.exe"
+            phantomjs_path
         );
 
         // Launch driver (will take care and ownership of the phantomjs process)
@@ -30,8 +59,8 @@ public class App {
     }
 
 	private static void ruten_action(WebDriver driver) {
-		RutenHandler ruten_handler = new RutenHandler(driver);
-		ruten_handler.analyzeClickOrder("click_order.xml");
+		RutenHandler ruten_handler = new RutenHandler(driver, phantomjs_path);
+		ruten_handler.analyzeClickOrder(crawl_file);
 		ruten_handler.crawl_iterator(ruten_handler.click_head, driver, "./");
 	}
 
@@ -54,5 +83,28 @@ public class App {
 		
 	}
 	
+	public static boolean isWindows() {
+
+		return (OS.indexOf("win") >= 0);
+
+	}
+
+	public static boolean isMac() {
+
+		return (OS.indexOf("mac") >= 0);
+
+	}
+
+	public static boolean isUnix() {
+
+		return (OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") > 0 );
+		
+	}
+
+	public static boolean isSolaris() {
+
+		return (OS.indexOf("sunos") >= 0);
+
+	}
     
 }
