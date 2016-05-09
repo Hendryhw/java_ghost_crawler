@@ -2,7 +2,7 @@
 click_order.xml
 
 ## Selenium Java(Single-thread)
-Download here : <br />
+Download Chrome Driver here : <br />
 https://sites.google.com/a/chromium.org/chromedriver/downloads<br />
 Put Chrome driver in your path of chrome :<br />
 Windows default path<br />
