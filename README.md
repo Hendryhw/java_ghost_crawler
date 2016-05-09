@@ -1,7 +1,14 @@
 ## Check the input example in :
 click_order.xml
 
-## PhantomJS Driver Download here
+## Selenium Java(Single-thread)
+Download here : <br />
+https://sites.google.com/a/chromium.org/chromedriver/downloads<br />
+Put Chrome driver in your path of chrome :<br />
+Windows default path<br />
+C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe
+
+## PhantomJS(Multi-thread) Driver Download here
 http://phantomjs.org/download.html
 
 Put PhantomJS to :<br />

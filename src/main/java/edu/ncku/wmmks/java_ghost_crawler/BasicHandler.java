@@ -2,7 +2,8 @@ package edu.ncku.wmmks.java_ghost_crawler;
 
 import java.io.File;
 
-public class BasicHandler {
+public class BasicHandler extends BasicCrawler{
+	
 	
 	public static boolean delete_directory(String dirName){
 		//Construct directory structure
